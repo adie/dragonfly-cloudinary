@@ -17,6 +17,7 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]
 
+  gem.add_dependency 'rake', '>= 0.9'
   gem.add_dependency 'dragonfly', '>= 0.9'
   gem.add_dependency 'cloudinary', '>= 1.0'
 end
