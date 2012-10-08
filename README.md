@@ -1,6 +1,6 @@
 # Dragonfly::Cloudinary
 
-Simple Cloudinary data store for Dragonfly. Uploads and fetches only in JPG format.
+Simple Cloudinary data store for Dragonfly.
 
 ## Installation
 
