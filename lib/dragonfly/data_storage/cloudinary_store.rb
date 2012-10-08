@@ -20,11 +20,13 @@ module Dragonfly
       private
 
       def public_id(uid)
-        File.basename(uid, ext(uid))
+        File.basename(uid, ext(uid, true))
       end
 
-      def ext(uid)
-        File.extname(uid)
+      def ext(uid, with_dot = false)
+        ext = File.extname(uid)
+        ext[0] = '' if ext and !with_dot
+        ext
       end
     end
   end
