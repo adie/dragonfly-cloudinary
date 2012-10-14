@@ -17,6 +17,11 @@ module Dragonfly
         ::Cloudinary::Uploader.destroy public_id(uid)
       end
 
+      def url_for(uid, options = {})
+        options = {format: ext(uid)}.merge(options)
+        ::Cloudinary::Utils.cloudinary_url(public_id(uid), options)
+      end
+
       private
 
       def public_id(uid)
