@@ -3,6 +3,9 @@ require 'cloudinary'
 module Dragonfly
   module DataStorage
     class CloudinaryStore
+      def initialize config={}
+      end
+
       def store(temp_object, opts={})
         result = ::Cloudinary::Uploader.upload(temp_object.path)
         result['public_id'] + "." + result['format']
