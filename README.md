@@ -1,5 +1,8 @@
 # Dragonfly::Cloudinary
 
+[![Gem Version](https://badge.fury.io/rb/dragonfly-cloudinary.svg)](http://badge.fury.io/rb/dragonfly-cloudinary)
+[![Code Climate](https://codeclimate.com/github/adie/dragonfly-cloudinary.png)](https://codeclimate.com/github/adie/dragonfly-cloudinary)
+
 Simple Cloudinary data store for Dragonfly.
 
 ## Installation
