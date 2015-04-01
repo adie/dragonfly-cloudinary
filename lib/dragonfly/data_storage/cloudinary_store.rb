@@ -7,7 +7,7 @@ module Dragonfly
       end
 
       def store(temp_object, opts={})
-        result = ::Cloudinary::Uploader.upload(temp_object.path)
+        result = ::Cloudinary::Uploader.upload(temp_object.path, exif: true)
         result['public_id'] + "." + result['format']
       end
 
@@ -24,6 +24,26 @@ module Dragonfly
         options = {format: ext(uid)}.merge(options)
         ::Cloudinary::Utils.cloudinary_url(public_id(uid), options)
       end
+
+      # Store the data AND meta, and return a unique string uid
+      def write(content, opts={})
+        store(content, opts)
+      end
+
+      # Retrieve the data and meta as a 2-item array
+      def read(uid)
+        data = retrieve(uid)
+        resource_data = ::Cloudinary::Api.resource(public_id(uid), exif: true)
+        if data
+          [
+              data,     # can be a String, File, Pathname, Tempfile
+              resource_data['exif']      # the same meta Hash that was stored with write
+          ]
+        else
+          nil         # return nil if not found
+        end
+      end
+
 
       private
 
