@@ -37,7 +37,7 @@ module Dragonfly
         if data
           [
               data,     # can be a String, File, Pathname, Tempfile
-              resource_data['metadata']      # the same meta Hash that was stored with write
+              resource_data['exif']      # the same meta Hash that was stored with write
           ]
         else
           nil         # return nil if not found
