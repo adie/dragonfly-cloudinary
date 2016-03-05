@@ -26,7 +26,7 @@ module Dragonfly
       end
 
       # Store the data AND meta, and return a unique string uid
-      def write(content, opts={})
+      def write(content, opts = {})
         store(content, opts)
       end
 
@@ -36,14 +36,16 @@ module Dragonfly
         resource_data = ::Cloudinary::Api.resource(public_id(uid), exif: true)
         if data
           [
-              data,     # can be a String, File, Pathname, Tempfile
-              resource_data['exif']      # the same meta Hash that was stored with write
+            # can be a String, File, Pathname, Tempfile
+            data,
+
+            # the same meta Hash that was stored with write
+            resource_data["exif"]
           ]
         else
           nil         # return nil if not found
         end
       end
-
 
       private
 
